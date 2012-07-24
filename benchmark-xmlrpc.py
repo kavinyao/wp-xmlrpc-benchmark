@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 
-# Source: http://naxxfish.eu/2011/xml-rpc-benchmarking/
+# Original source: http://naxxfish.eu/2011/xml-rpc-benchmarking/
 
 # This script benchmarks XML-RPC performance
-# use redirection of your shell to save results!
 
 from twisted.web.xmlrpc import Proxy
 from twisted.internet import reactor
