@@ -79,7 +79,7 @@ if __name__ == '__main__':
     print '\n[....Method Stats]'
     for method, average in method_averages:
         # trim method name for display
-        print '%17s: %.6fs' % (method[:17], average)
+        print '%17s: %.6fs [%5dreqs]' % (method[:17], average, len(method_durations[method]))
 
     # plot finished requests per 30 seconds
     req_stats = defaultdict(list)
@@ -97,5 +97,5 @@ if __name__ == '__main__':
     i = 1
     for req_number in reqs_per_30s:
         stars = '*' * (req_number*60 / max_number)
-        print '%02d[%3d]: %s' % (i, req_number, stars)
+        print '%02d[%4d]: %s' % (i, req_number, stars)
         i += 1
