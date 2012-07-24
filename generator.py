@@ -16,7 +16,7 @@ def _generate_param(param):
     return final_param
 
 
-def generate_methods(method_spec, site_info, number_of_requests):
+def generate_methods(method_spec, site_info, number_of_requests, shuffle=True):
     """
     Generate a list of XML-RPC method tuples based on method specification.
     A method tuple is like ('method_name', [param1, param2, ...]).
@@ -46,6 +46,11 @@ def generate_methods(method_spec, site_info, number_of_requests):
 
     if consumed_requests < number_of_requests:
         # not enough, append some
-        methods += [methods[0]] * (number_of_requests-consumed_requests)
+        # use random to keep ratio
+        methods += [random.choice(methods) for i in range(number_of_requests-consumed_requests)]
+
+    if shuffle:
+        # shuffle to make pattern more realistic
+        random.shuffle(methods)
 
     return methods

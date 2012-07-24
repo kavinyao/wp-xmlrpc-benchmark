@@ -60,8 +60,9 @@ if __name__ == '__main__':
     print '         end time: %s' % end_time
 
     num_requests = len(durations)
-    print '    good requests: %d' % num_requests
-    print '     bad requests: %d' % len(bad_reqs)
+    bad_requests = len(bad_reqs)
+    success_rate = float(num_requests) / (num_requests+bad_requests)
+    print '     success rate: %.3f%% [%d/%d]' % (success_rate*100, num_requests, num_requests+bad_requests)
 
     total_duration = _seconds(start_time, end_time)
     print '   total duration: %.6fs' % total_duration
