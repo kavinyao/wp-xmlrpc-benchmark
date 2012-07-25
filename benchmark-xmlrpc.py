@@ -118,14 +118,22 @@ class Benchmark():
 
 if __name__ == '__main__':
     if len(sys.argv) < 4:
-        sys.stderr.write('Usage: %s config_file concurrent_request_number total_request_number\n' % (sys.argv[0]))
+        sys.stderr.write('Usage: %s config_file con_reqs all_reqs [log_file]\n' % (sys.argv[0]))
+        sys.stderr.write('       config_file: the configuration file to use\n')
+        sys.stderr.write('       con_reqs: number of concurrent requests\n')
+        sys.stderr.write('       all_reqs: all requests to send\n')
+        sys.stderr.write('       log_file: write logs to this file, discarding default setting\n')
         exit(1)
 
     config = __import__(sys.argv[1].split('.')[0])
 
     concurrent_reqs = int(sys.argv[2])
     total_reqs = int(sys.argv[3])
-    filename = 'log%d-%d-%s' % (concurrent_reqs, total_reqs, datetime.datetime.now().strftime('%m-%d-%H:%M:%S'))
+    if len(sys.argv) > 4:
+        filename = sys.argv[4]
+    else:
+        date_string = datetime.datetime.now().strftime('%m-%d-%H:%M:%S')
+        filename = 'log%d-%d-%s' % (concurrent_reqs, total_reqs, date_string)
 
     methods = generate_methods(config.method_specification, config.site_info, total_reqs)
 

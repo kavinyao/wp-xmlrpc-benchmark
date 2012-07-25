@@ -5,9 +5,9 @@ This is a home-built tool for benchmarking WordPress XML-RPC and analyzing resul
 ## Usage
 
 1. Make a benchmark configuration. You can refer to `sample-config.py` as a skeleton.
-1. Run benchmark with `python benchmark-xmlrpc.py config-file.py concurrent_requests total_requests`.
+1. Run benchmark with `python benchmark-xmlrpc.py config-file.py concurrent_requests total_requests [log_file]`.
     * Example: `python benchmark-xmlrpc.py site-1-config.py 100 5000`
-    * A log file in the format `log[con_req]-[total_req]-[month]-[day]-[hour]:[minute]:[second]` will be generated
+    * Request data are written to log files. If the file name is not specified, a log file in the format `log[con_req]-[total_req]-[month]-[day]-[hour]:[minute]:[second]` will be generated
     * Errors will be logged to a file with name `{log_file}-error`
 1. Analyze log with `python analyze-log.py log_file`.
 
