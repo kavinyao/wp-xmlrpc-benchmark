@@ -14,28 +14,36 @@ This is a home-built tool for benchmarking WordPress XML-RPC and analyzing resul
 The analysis report is like:
 
     [.........Summary]
-           start time: 2012-07-24 02:40:03.969915
-             end time: 2012-07-24 02:41:01.760889
-        good requests: 3000
-         bad requests: 0
-       total duration: 57.790974s
-     average duration: 1.906461s
-           throughput: 3114.673236 req/min
+           start time: 2012-07-25 09:57:32.371788
+             end time: 2012-07-25 10:02:56.258678
+         success rate: 99.060% [9906/10000]
+       total duration: 323.886890s
+     average duration: 3.177937s
+           throughput: 1835.085082 req/min
 
     [....Method Stats]
-    wp.getPostStatusL: 1.211825s [  230reqs]
-       wp.getTaxonomy: 1.214590s [  230reqs]
-     wp.getTaxonomies: 1.244669s [  230reqs]
-          wp.getTerms: 1.257016s [  230reqs]
-    wp.getPostFormats: 1.280260s [  230reqs]
-          wp.getPosts: 1.690162s [  461reqs]
-       wp.getPostType: 1.762043s [  230reqs]
-           wp.getPost: 1.763301s [  467reqs]
-           wp.newPost: 3.299949s [  692reqs]
+    wp.getPostFormats: 1.473392s [  769reqs]
+           wp.getPost: 1.540098s [ 1447reqs]
+    wp.getPostStatusL: 1.553953s [  769reqs]
+       wp.getPostType: 1.866592s [  769reqs]
+          wp.getTerms: 2.137198s [  769reqs]
+       wp.getTaxonomy: 2.175794s [  769reqs]
+          wp.getPosts: 2.317214s [ 1538reqs]
+     wp.getTaxonomies: 2.514145s [  769reqs]
+           wp.newPost: 7.227887s [ 2307reqs]
 
     [....Requests/30s]
-    01[1418]: *****************************************************
-    02[1582]: ************************************************************
+    01[1707]: ******************************************************
+    02[1360]: *******************************************
+    03[ 452]: **************
+    04[ 428]: *************
+    05[ 435]: *************
+    06[ 377]: ************
+    07[ 371]: ***********
+    08[ 951]: ******************************
+    09[1865]: ************************************************************
+    10[1257]: ****************************************
+    11[ 703]: **********************
 
 ## Dependency
 
